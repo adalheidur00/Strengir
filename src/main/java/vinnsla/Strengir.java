@@ -10,6 +10,7 @@ package vinnsla;
 
 public class Strengir {
     private String texti;
+    private char stafur;
 
     public Strengir() {
 
@@ -22,6 +23,10 @@ public class Strengir {
      */
     public void setTexti(String texti) {
         this.texti = texti;
+    }
+
+    public void setStafur(char stafur){
+        this.stafur = stafur;
     }
 
     /**
@@ -52,5 +57,19 @@ public class Strengir {
             return texti.split(" ").length;
         }
 
+    }
+
+    public int fjoldiStafa() {
+        if (texti == null) {
+            return 0;
+        }
+        int teljari = 0;
+        for(int i = 0;i < texti.length(); i++){
+            if(texti.charAt(i) == stafur){
+                teljari++;
+            }
+        }
+
+        return teljari;
     }
 }
