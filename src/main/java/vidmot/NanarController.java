@@ -13,12 +13,19 @@ public class NanarController {
     @FXML
     private ListView<String> fxVistudOrd;
 
-    private NanarController nanarController;
+
+
 
     public void initialize(){
-        ordalisti = new Ordalisti();
-        fxVistudOrd.setItems(ordalisti.getOrdalisti());
+        Strengir strengir = new Strengir();
+        strengir.setTexti("");
+        ordalisti = new Ordalisti(strengir);
 
+        fxVistudOrd.setItems(ordalisti.getOrdaListi());
+
+        fxVistudOrd.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println(newValue);
+        });
     }
 
     @FXML

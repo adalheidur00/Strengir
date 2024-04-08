@@ -49,9 +49,10 @@ public class StrengirController {
     @FXML
     private Label fxStadsetning;     // úttak fyrir staðsetningu leitarorðs
 
-
     // Vinnsluhlutur
     private final Strengir strengir = new Strengir();
+
+
 
     // aðferðir fyrir aðgerðir í notendaviðmóti
 
@@ -130,6 +131,7 @@ public class StrengirController {
         } else {
             fxTexti.getStyleClass().add(TEXTI);
             strengir.setTexti(fxTexti.getText());
+
         }
     }
 

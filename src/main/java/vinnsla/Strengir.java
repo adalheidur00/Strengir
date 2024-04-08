@@ -10,6 +10,7 @@ package vinnsla;
 
 public class Strengir {
     private String texti;
+
     private char stafur;
 
     public Strengir() {
@@ -32,6 +33,7 @@ public class Strengir {
     public String getTexti(){
         return texti;
     }
+
 
 
 
