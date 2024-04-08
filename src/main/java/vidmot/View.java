@@ -1,7 +1,7 @@
 package vidmot;
 
 public enum View {
-    NANAR("nanar.fxml"),
+    NANAR("nanar-view.fxml"),
     HEIM("strengir-view.fxml");
 
     private String fileName;
