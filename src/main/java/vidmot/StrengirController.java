@@ -1,18 +1,12 @@
 package vidmot;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import vinnsla.Strengir;
-
-import java.util.Arrays;
-import java.util.List;
 
 /******************************************************************************
  *  Nafn    : Ebba Þóra Hvannberg
@@ -53,7 +47,6 @@ public class StrengirController {
     private final Strengir strengir = new Strengir();
 
 
-
     // aðferðir fyrir aðgerðir í notendaviðmóti
 
     /**
@@ -67,7 +60,7 @@ public class StrengirController {
     @FXML
     public void onLeit(ActionEvent actionEvent) {
         if (fxLeitarord.getText().isEmpty()) {
-            Alert a =  ekkertLeitarOrdAlert();
+            Alert a = ekkertLeitarOrdAlert();
             a.showAndWait();
         }
         try {
@@ -98,17 +91,17 @@ public class StrengirController {
     }
 
     @FXML
-    public void onTeljaStaf(ActionEvent actionEvent){
+    public void onTeljaStaf(ActionEvent actionEvent) {
         try {
             String stafur = fxStafur.getText();
-            if(stafur.length() != 1){
+            if (stafur.length() != 1) {
                 fxStafur.getStyleClass().add(OF_MARGIR);
             } else {
                 fxStafur.getStyleClass().remove(OF_MARGIR);
                 strengir.setStafur(fxStafur.getText().charAt(0));
                 fxFjoldiStafa.setText(strengir.fjoldiStafa() + "");
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             fxStafur.getStyleClass().add(ENGINN_TEXTI);
         }
     }
@@ -122,7 +115,7 @@ public class StrengirController {
     @FXML
     public void onVistaTexta(ActionEvent actionEvent) {
         String text = fxTexti.getText();
-        if(text.length() > 100){
+        if (text.length() > 100) {
             Alert a = ofMargirStafirAlert();
             a.showAndWait();
         } else if (text.matches(".*\\d.*")) {
@@ -135,6 +128,27 @@ public class StrengirController {
         }
     }
 
+    @FXML
+    private MenuItem LOKA;
+    @FXML
+    private VBox strengirvbox;
+
+    Stage stage;
+
+    public void loka(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Loka");
+        alert.setHeaderText("Ertu viss um að þú viljir loka forritinu?");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+
+            stage = (Stage) strengirvbox.getScene().getWindow();
+            stage.close();
+        }
+    }
+
+
     /**
      * Ef notandi skrifar af lyklaborði í texta hlut (textinn eða leitarorð) þá verður ramminn grár
      *
@@ -146,25 +160,25 @@ public class StrengirController {
         ((TextField) keyEvent.getSource()).getStyleClass().add(LEITARORD);
     }
 
-    public void onNanar(ActionEvent actionEvent){
+    public void onNanar(ActionEvent actionEvent) {
         ViewSwitcher.switchTo(View.NANAR);
     }
 
-    private Alert ofMargirStafirAlert(){
+    private Alert ofMargirStafirAlert() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Viðvörun");
         a.setHeaderText("Ekki skrifa meira en 100 stafi í texta gluggan");
         return a;
     }
 
-    private Alert engirTolustafirAlert(){
+    private Alert engirTolustafirAlert() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Viðvörun");
         a.setHeaderText("Ekki skrifa tölustafi í texta gluggan");
         return a;
     }
 
-    private Alert ekkertLeitarOrdAlert(){
+    private Alert ekkertLeitarOrdAlert() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Viðvörun");
         a.setHeaderText("Þú átt eftir að slá inn leitarorð");
