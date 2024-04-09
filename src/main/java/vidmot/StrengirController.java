@@ -146,6 +146,10 @@ public class StrengirController {
         ViewSwitcher.switchTo(View.NANAR);
     }
 
+    /**
+     * MenuItem sem lokar forritnu
+     * @param event
+     */
     @FXML
     public void onLoka(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -158,9 +162,12 @@ public class StrengirController {
         }
     }
 
+    /**
+     * MenuItem sem sýnir upplýsingar um forritið
+     * @param actionEvent
+     */
     @FXML
     public void onUm(ActionEvent actionEvent) {
-        //ViewSwitcher.switchTo(View.UM);
         Alert newTextabod = new Alert(Alert.AlertType.INFORMATION);
         newTextabod.setTitle("Um forritið");
         newTextabod.setHeaderText("Velkomin í strengjaleit");
