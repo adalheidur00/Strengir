@@ -2,31 +2,40 @@ package vinnsla;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import vidmot.StrengirController;
+
+import java.util.Arrays;
 
 public class Ordalisti {
 
-    private final ObservableList<String> ordaListi;
+    public static ObservableList<String> ordaListi = FXCollections.observableArrayList();
 
-    public Strengir strengir;
+    public static Strengir strengir;
 
-    public Ordalisti(Strengir strengir){
-        this.ordaListi = FXCollections.observableArrayList();
-        this.strengir = strengir;
+//    public Ordalisti(Strengir strengir){
+//        ordaListi = FXCollections.observableArrayList();
+//        Ordalisti.strengir = strengir;
+//
+//        String text = strengir.getTexti();
+//        if(text != null) {
+//            String[] ord = text.split("\\s+");
+//
+//            ordaListi.addAll(Arrays.asList(ord));
+//        }
+//    }
 
+    public static void setStrengir(Strengir strengir){
+        Ordalisti.strengir = strengir;
         String text = strengir.getTexti();
         if(text != null) {
             String[] ord = text.split("\\s+");
 
-            for (String ordin : ord) {
-                ordaListi.add(ordin);
-            }
+            ordaListi.addAll(Arrays.asList(ord));
         }
     }
 
-    public ObservableList<String> getOrdaListi(){
-        return ordaListi;
-    }
+//    public ObservableList<String> getOrdaListi(){
+//        return ordaListi;
+//    }
 
 
 

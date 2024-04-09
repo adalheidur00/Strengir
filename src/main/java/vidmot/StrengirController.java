@@ -1,7 +1,6 @@
 package vidmot;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,23 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import vinnsla.Ordalisti;
 import vinnsla.Strengir;
+import java.io.IOException;
 
-import java.util.Arrays;
-import java.util.List;
-
-/******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *
- *  Lýsing  : Stýriklasi fyrir Strengir application. Leyfir notanda að
- *  Skrifa inn texta
- *  Vista texta
- *  Leita í texta
- *  Telja orð í texta
- *
- *
- *****************************************************************************/
 
 public class StrengirController {
 
@@ -55,6 +41,13 @@ public class StrengirController {
 
 
     // aðferðir fyrir aðgerðir í notendaviðmóti
+
+    public void initialize() {
+        if (!Ordalisti.ordaListi.isEmpty()) {
+            fxTexti.setText(String.join(" ", Ordalisti.ordaListi));
+            strengir.setTexti(fxTexti.getText());
+        }
+    }
 
     /**
      * Leitar að orði og setur staðsetninguna í staðsetningarviðmótshlut
@@ -146,7 +139,8 @@ public class StrengirController {
         ((TextField) keyEvent.getSource()).getStyleClass().add(LEITARORD);
     }
 
-    public void onNanar(ActionEvent actionEvent){
+    public void onNanar(ActionEvent actionEvent) throws IOException {
+        Ordalisti.setStrengir(strengir);
         ViewSwitcher.switchTo(View.NANAR);
     }
 
