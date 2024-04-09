@@ -1,13 +1,13 @@
 package vidmot;
 
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import vinnsla.Ordalisti;
 import vinnsla.Strengir;
 
@@ -33,6 +33,7 @@ public class StrengirController {
     private Label fxFjoldiStafa;
     @FXML
     private Label fxStadsetning;     // úttak fyrir staðsetningu leitarorðs
+
 
     // Vinnsluhlutur
     private final Strengir strengir = new Strengir();
@@ -144,6 +145,30 @@ public class StrengirController {
         Ordalisti.setStrengir(strengir);
         ViewSwitcher.switchTo(View.NANAR);
     }
+
+    @FXML
+    public void onLoka(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Loka");
+        alert.setHeaderText("Ertu viss um að þú viljir loka forritinu?");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            Platform.exit();
+            System.exit(0);
+        }
+    }
+
+    @FXML
+    public void onUm(ActionEvent actionEvent) {
+        //ViewSwitcher.switchTo(View.UM);
+        Alert newTextabod = new Alert(Alert.AlertType.INFORMATION);
+        newTextabod.setTitle("Um forritið");
+        newTextabod.setHeaderText("Velkomin í strengjaleit");
+        newTextabod.setContentText("Þetta forrit snýst um að vista texta og leita af upplýsingum í vistuðum textum. Til dæmis er hægt að finna fjölda orða í texta, eyða endurteknum orðum í löngum texta (eins og listum) og finna fjölda bókstafa. Forritið okkar leyfir þér að léttilega geyma gögn sem er síðan hægt að leita af úr gagnageymslunni okkar.");
+
+        newTextabod.showAndWait();
+    }
+
 
     /* Alert viðmótshlutir sem láta notanda vita ef einhverjar
      kröfur sem fá forritið til að virka eru ekki uppfylltar */
