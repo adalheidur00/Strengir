@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<AnchorPane fx:id="nanaranchor" prefHeight="305.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="vidmot.NanarController">
+
+<AnchorPane fx:id="nanaranchor" prefHeight="305.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vidmot.NanarController">
     <VBox prefHeight="305.0" prefWidth="494.0">
         <children>
             <MenuBar prefHeight="26.0" prefWidth="494.0">
                 <menus>
                     <Menu mnemonicParsing="false" text="Skrá">
                         <items>
-                            <MenuItem fx:id="LOKA" mnemonicParsing="false" onAction="#loka" text="Loka"/>
+                            <MenuItem fx:id="LOKA" mnemonicParsing="false" onAction="#loka" text="Loka" />
                         </items>
                     </Menu>
-                    <Menu mnemonicParsing="false" text="Um Forritið"/>
-                    <Menu mnemonicParsing="false" text="Hjálp"/>
+                    <Menu fx:id="um" mnemonicParsing="false" onAction="#onUm" text="Um Forritið" />
                 </menus>
             </MenuBar>
-            <ListView fx:id="fxVistudOrd" prefHeight="229.0" prefWidth="493.0"/>
+            <ListView fx:id="fxVistudOrd" prefHeight="229.0" prefWidth="493.0" />
             <HBox prefHeight="36.0" prefWidth="493.0" spacing="5.0">
                 <children>
-                    <Button onAction="#onTilBaka" prefHeight="36.0" prefWidth="112.0" text="Til baka"/>
-                    <Label alignment="CENTER" prefHeight="36.0" prefWidth="112.0" style="-fx-border-color: black;"
-                           text="Orða talning"/>
-                    <Label alignment="CENTER" prefHeight="36.0" prefWidth="112.0" style="-fx-border-color: black;"
-                           text="0"/>
+                    <Button onAction="#onTilBaka" prefHeight="36.0" prefWidth="112.0" text="Til baka" />
+                    <Label alignment="CENTER" prefHeight="36.0" prefWidth="112.0" style="-fx-border-color: black;" text="Orða talning" />
+                    <Label alignment="CENTER" prefHeight="36.0" prefWidth="112.0" style="-fx-border-color: black;" text="0" />
                 </children>
             </HBox>
         </children>

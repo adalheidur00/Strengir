@@ -55,5 +55,8 @@ public class NanarController {
         }
     }
 
-
+    @FXML
+    public void onUm(ActionEvent actionEvent) {
+        ViewSwitcher.switchTo(View.UM);
+    }
 }

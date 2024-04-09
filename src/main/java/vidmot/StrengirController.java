@@ -164,6 +164,11 @@ public class StrengirController {
         ViewSwitcher.switchTo(View.NANAR);
     }
 
+    @FXML
+    public void onUm(ActionEvent actionEvent) {
+        ViewSwitcher.switchTo(View.UM);
+    }
+
     private Alert ofMargirStafirAlert() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Viðvörun");
