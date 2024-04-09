@@ -4,53 +4,66 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="309.0" prefWidth="493.0" spacing="5.0" stylesheets="@css/strengir.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vidmot.StrengirController">
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
-   <HBox spacing="5.0">
-      <children>
-         <TextField fx:id="fxLeitarord" onKeyTyped="#onSkrifa" prefHeight="53.0" prefWidth="387.0" promptText="Leitarorð">
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-         </TextField>
-         <Label fx:id="fxStadsetning" alignment="CENTER" prefHeight="53.0" prefWidth="206.0" style="-fx-border-color: grey;" text="0" />
-         <Button onAction="#onLeit" prefHeight="53.0" prefWidth="215.0" text="Leita" />
-      </children>
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-      <VBox.margin>
-         <Insets />
-      </VBox.margin>
-   </HBox>
-   <HBox spacing="5.0">
-      <children>
-         <TextArea fx:id="fxTexti" prefHeight="120.0" prefWidth="379.0" promptText="Sláðu inn texta" />
-         <Button mnemonicParsing="false" onAction="#onVistaTexta" prefHeight="120.0" prefWidth="108.0" text="Vista" />
-      </children>
-   </HBox>
-   <HBox spacing="5.0">
-      <children>
-         <Label fx:id="fxFjoldiOrda" alignment="CENTER" prefHeight="49.0" prefWidth="182.0" style="-fx-border-color: grey;" text="0" />
-         <Button mnemonicParsing="false" onAction="#onTeljaOrd" prefHeight="48.0" prefWidth="101.0" text="Telja orð" />
-         <Button onAction="#onNanar" mnemonicParsing="false" prefHeight="49.0" prefWidth="182.0" text="Nánar" />
-      </children>
-   </HBox>
-   <HBox prefHeight="46.0" prefWidth="473.0" spacing="5.0">
-      <children>
-         <TextField fx:id="fxStafur" prefHeight="46.0" prefWidth="183.0" promptText="Sláðu inn staf" />
-         <Button mnemonicParsing="false" onAction="#onTeljaStaf" prefHeight="46.0" prefWidth="181.0" text="Telja staf" />
-         <Label fx:id="fxFjoldiStafa" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="100.0" style="-fx-border-color: black;" text="0" />
-      </children>
-   </HBox>
+<VBox fx:id="strengirvbox" alignment="CENTER" prefHeight="309.0" prefWidth="493.0" spacing="5.0" stylesheets="@css/strengir.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vidmot.StrengirController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <MenuBar>
+        <menus>
+            <Menu mnemonicParsing="false" text="Skrá">
+                <items>
+                    <MenuItem fx:id="LOKA" mnemonicParsing="false" onAction="#loka" text="Loka" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" onAction="#onUm" text="Um Forritið" />
+        </menus>
+    </MenuBar>
+    <HBox spacing="5.0">
+        <children>
+            <TextField fx:id="fxLeitarord" onKeyTyped="#onSkrifa" prefHeight="53.0" prefWidth="387.0" promptText="Leitarorð">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </TextField>
+            <Label fx:id="fxStadsetning" alignment="CENTER" prefHeight="53.0" prefWidth="206.0" style="-fx-border-color: grey;" text="0" />
+            <Button onAction="#onLeit" prefHeight="53.0" prefWidth="215.0" text="Leita" />
+        </children>
+        <opaqueInsets>
+            <Insets />
+        </opaqueInsets>
+        <VBox.margin>
+            <Insets />
+        </VBox.margin>
+    </HBox>
+    <HBox spacing="5.0">
+        <children>
+            <TextArea fx:id="fxTexti" prefHeight="120.0" prefWidth="379.0" promptText="Sláðu inn texta" />
+            <Button mnemonicParsing="false" onAction="#onVistaTexta" prefHeight="120.0" prefWidth="108.0" text="Vista" />
+        </children>
+    </HBox>
+    <HBox spacing="5.0">
+        <children>
+            <Label fx:id="fxFjoldiOrda" alignment="CENTER" prefHeight="49.0" prefWidth="182.0" style="-fx-border-color: grey;" text="0" />
+            <Button mnemonicParsing="false" onAction="#onTeljaOrd" prefHeight="48.0" prefWidth="101.0" text="Telja orð" />
+            <Button mnemonicParsing="false" onAction="#onNanar" prefHeight="49.0" prefWidth="182.0" text="Nánar" />
+        </children>
+    </HBox>
+    <HBox prefHeight="46.0" prefWidth="473.0" spacing="5.0">
+        <children>
+            <TextField fx:id="fxStafur" prefHeight="46.0" prefWidth="183.0" promptText="Sláðu inn staf" />
+            <Button mnemonicParsing="false" onAction="#onTeljaStaf" prefHeight="46.0" prefWidth="181.0" text="Telja staf" />
+            <Label fx:id="fxFjoldiStafa" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="100.0" style="-fx-border-color: black;" text="0" />
+        </children>
+    </HBox>
 </VBox>
