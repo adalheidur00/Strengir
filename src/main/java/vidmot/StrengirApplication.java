@@ -5,12 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-/******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *  Lýsing  : Main klasi fyrir Strengir application. Sér um að lesa inn notendaviðmótslýsingu og ræsa forritið
- *
- *****************************************************************************/
 public class StrengirApplication extends Application {
     @Override
     public void start(Stage stage){

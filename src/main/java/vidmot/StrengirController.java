@@ -10,8 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import vinnsla.Ordalisti;
 import vinnsla.Strengir;
-import java.io.IOException;
-
 
 public class StrengirController {
 
@@ -21,11 +19,12 @@ public class StrengirController {
     public static final String OF_MARGIR = "of-margir";
     public static final String LEITARORD = "leitarord";
     public static final String TEXTI = "texti";
+
     // Notendaviðmóts tilviksbreytur
     @FXML
     private TextField fxLeitarord;   //Leitarorð
     @FXML
-    private TextField fxStafur;
+    private TextField fxStafur;     //Stafur
     @FXML
     private TextArea fxTexti;       //Texti sem notandi slær inn
     @FXML
@@ -37,8 +36,6 @@ public class StrengirController {
 
     // Vinnsluhlutur
     private final Strengir strengir = new Strengir();
-
-
 
     // aðferðir fyrir aðgerðir í notendaviðmóti
 
@@ -139,10 +136,17 @@ public class StrengirController {
         ((TextField) keyEvent.getSource()).getStyleClass().add(LEITARORD);
     }
 
-    public void onNanar(ActionEvent actionEvent) throws IOException {
+    /**
+     * Setur strenginn í orðalistann og færir notandann yfir í nýja senu
+     * @param actionEvent ónotað
+     */
+    public void onNanar(ActionEvent actionEvent){
         Ordalisti.setStrengir(strengir);
         ViewSwitcher.switchTo(View.NANAR);
     }
+
+    /* Alert viðmótshlutir sem láta notanda vita ef einhverjar
+     kröfur sem fá forritið til að virka eru ekki uppfylltar */
 
     private Alert ofMargirStafirAlert(){
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);

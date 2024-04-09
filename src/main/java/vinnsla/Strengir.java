@@ -1,20 +1,11 @@
 package vinnsla;
 
-/******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *
- *  Lýsing  : Vinnsluklasi fyrir strengi
- *
- *****************************************************************************/
-
 public class Strengir {
-    private String texti;
 
+    private String texti;
     private char stafur;
 
     public Strengir() {
-
     }
 
     /**
@@ -26,6 +17,10 @@ public class Strengir {
         this.texti = texti;
     }
 
+    /**
+     * setur staf í vinnsuhlutann
+     * @param stafur stafur
+     */
     public void setStafur(char stafur){
         this.stafur = stafur;
     }
@@ -33,9 +28,6 @@ public class Strengir {
     public String getTexti(){
         return texti;
     }
-
-
-
 
     /**
      * Leitar að leitarord í textanum og skilar staðsetningu leitarorðsins
@@ -67,6 +59,10 @@ public class Strengir {
 
     }
 
+    /**
+     * telur fjölda stafa í textanum og skilar fjöldanum
+     * @return fjöldi stafa
+     */
     public int fjoldiStafa() {
         if (texti == null) {
             return 0;
@@ -77,7 +73,6 @@ public class Strengir {
                 teljari++;
             }
         }
-
         return teljari;
     }
 }
